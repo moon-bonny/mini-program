@@ -1,0 +1,30 @@
+<!-- 使用示例(当下拉刷新跟上拉加载同时并存再用此插件) -->
+<!-- <template is="listLoadStatus" data="{{...listLoadStatus}}"/>
+Page({
+  data: {
+    listLoadStatus: {
+      isShowMoreBlock: false,
+      loadMore: true,
+      noData: false
+    }
+  }
+}) -->
+<!-- 分页加载加载状态 -->
+<template name="listLoadStatus">
+  <block wx:if="{{isShowMoreBlock}}">
+    <!-- 加载更多 -->
+    <view class="weui-loadmore" hidden="{{!loadMore}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">加载中…</view>
+    </view>
+    <!-- 没有更多啦 -->
+    <view class="weui-loadmore" hidden="{{loadMore}}">
+      <text class="no-more-txt">没有更多啦</text>
+    </view>
+  </block>
+  <!-- 暂无数据 -->
+  <view class="no-data" wx:if="{{noData}}" >
+    <image class="no-data-pic" src="/image/no-data.png"></image>
+    <text class="no-data-txt">暂无相关记录</text>
+  </view>
+</template>

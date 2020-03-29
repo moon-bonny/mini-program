@@ -1,0 +1,67 @@
+<!-- 好书推荐 -->
+<template name="book">
+  <navigator class="books-item" hover-class="none" wx:key="{{index}}" url="{{section_count > 1 ? '/page/pages/sectionList/sectionList?type=book&bookId=' + book_id : '/page/pages/listenBook/listenBook?pageType=book&id='+ book_id +'&sectionId=' + section_id}}">
+    <image class="books-pic" src="{{cover}}" mode="aspectFill"></image>
+    <view class="books-title ellipsis">{{title}}</view>
+    <view class="books-company ellipsis">{{author}}</view>
+      <view class="books-desc ellipsis-two-line"> <rich-text nodes="{{introduce}}"></rich-text> </view>
+    <view wx:if="{{tag}}" class="books-tag">
+      {{tag}}
+    </view>
+    <view class="reader-con">
+      <!-- <image class="reader-icon" mode="aspectFit" src="/image/icon-reader.png"></image> -->
+      <text class="reader-num">{{view_amount}}人学过</text>
+    </view>
+  </navigator>
+</template>
+<!-- 金融知识 -->
+<template name="financeKnow">
+  <navigator class="info-item" hover-class="none" wx:key="{{index}}" url="/page/pages/moduleDetail/moduleDetail?pageType=financeKnow&articleId={{id}}">
+    <image class="info-art-pic" src="{{image}}"></image>
+    <view class="info-right">
+      <text class="info-art-title ellipsis-two-line">{{title}}</text>
+      <view class="bottom-txt">
+        <text class="info-grey-txt">{{view_count}}人读过</text>
+        <view class="bottom-right-con">
+          <!-- <image class="icon-clock" src="../../../image/icon-clock.png"></image> -->
+          <text class="info-grey-txt source ellipsis">{{source}}</text>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</template>
+<!-- 财经频道 -->
+<template name="financeInfo">
+  <navigator class="info-item" hover-class="none" wx:key="{{index}}" url="/page/pages/moduleDetail/moduleDetail?pageType=financeInfo&articleId={{id}}">
+    <image class="info-art-pic" src="{{image}}"></image>
+    <view class="info-right">
+      <text class="info-art-title ellipsis-two-line">{{title}}</text>
+      <view class="bottom-txt">
+        <text class="info-grey-txt">{{view_count}}人读过</text>
+        <view class="bottom-right-con">
+          <!-- <image class="icon-clock" src="../../../image/icon-clock.png"></image> -->
+          <text class="info-grey-txt source ellipsis">{{source}}</text>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</template>
+<!-- 声财课堂 -->
+<template name="lesson">
+  <navigator class="info-item" hover-class="none" url="{{section_count > 1 ? '/page/pages/sectionList/sectionList?type=lesson&lessonId=' + _id : (media_type === 1 ? '/page/pages/listenBook/listenBook?pageType=lesson&id='+ _id +'&sectionId=' + section_id : '/page/pages/moduleDetail/moduleDetail?pageType=lesson&articleId=' + section_id)}}">
+    <image class="info-art-pic" mode="aspectFill" src="{{cover}}">
+      <view class="lesson-label" wx:if="{{tag}}">{{tag}}</view>
+    </image>
+    <view class="info-right">
+      <text class="info-art-title ellipsis">{{title}}</text>
+      <text class="info-grey-txt">{{author}}</text>
+      <view class="bottom-txt">
+        <text class="info-grey-txt">{{view_amount}}人学过</text>
+        <view class="bottom-right-con">
+          <image class="icon-clock" src="../../../image/icon-clock.png"></image>
+          <text class="info-grey-txt">{{total_duration}} {{section_count}}节课</text>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</template>

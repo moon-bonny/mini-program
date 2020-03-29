@@ -1,0 +1,26 @@
+<!-- 导航nav  -->
+<template name="classifyNav">
+  <view class="classify-nav">
+    <navigator class="search-wrap" url="{{jumpUrl}}">
+      <icon type="search" size="18"></icon>
+    </navigator>
+    <view class="text-wrap">
+      <scroll-view scroll-x="true" scroll-into-view="{{toView}}">
+        <view data-index="{{index}}" bindtap="onTapSwitch" id="item{{index}}" class="item" wx:for="{{classData}}" wx:key="index">
+          <text data-index="{{index}}">{{item}}</text>
+          <view class="{{activeIndex == index ? 'on' : ''}}"></view>
+        </view>
+      </scroll-view>
+    </view>
+    <view bindtap="onTapRectangle" class="rectangle">
+      <image src="/image/icon_rectangle.png "></image>
+    </view>
+  </view>
+</template>
+<!-- 分类  -->
+<template name="classification">
+  <view bindtap="onHideClass" class="classification-bg"></view>
+  <view class="classification">
+    <view bindtap="onClassTapSwitch" wx:for="{{classData}}" wx:key="{{index}}" data-index="{{index}}" class="item {{activeClassIndex == index ? 'active' : ''}}">{{item}}</view>
+  </view>
+</template>

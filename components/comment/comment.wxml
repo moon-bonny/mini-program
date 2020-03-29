@@ -1,0 +1,43 @@
+<block wx:if="{{!isShowAllComments}}">
+  <view class="comment-total-score-con">
+    <text class="comment-total-txt">用户点评</text>
+    <text class="comment-total-num">（{{commentData.pagination.total_count}}）</text>
+    <view class="comment-total-score-star-con">
+      <!-- 没有评论默认5分 -->
+      <text class="comment-total-score-num">{{commentData.list.length ? commentData.average_score : ('5.0')}}分</text>
+      <view class="comment-score-star">
+        <!-- 每一颗星星只能全点亮/熄灭，或点亮半颗星，分值超过整数0.1~0.5，则向上点亮半颗星，分值超过整数0.6，则向上点亮一颗星 -->
+        <!-- <block wx:for="{{starNum}}">
+          <image wx:if="{{!commentData.list.length || ((index+1) < commentData.average_score) || (-0.5 < commentData.average_score - (index+1) > 0.5)}}" class="icon-star" src="/image/icon-comment-star-bright.png"></image>
+          <image wx:else class="icon-star" src="/image/icon-comment-star{{commentData.average_score > index ? '-half-bright' : ''}}.png"></image>
+        </block> -->
+        <view class="star-item" wx:for="{{starNum}}">
+          <image class="icon-star" wx:if="{{!commentData.list.length || commentData.average_score > index}}" src="/image/icon-comment-star{{!commentData.list.length || (-0.5 < commentData.average_score - (index+1) > 0.5) ? '-bright' : '-half-bright'}}.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 没有评论 -->
+  <view class="comment-no-data-con" wx:if="{{!commentData.list.length}}">
+    <image class="comment-no-data-pic" src="/image/no-data-comment.png"></image>
+    <text class="comment-no-data-txt">暂无点评，快来点评一个~</text>
+  </view>
+</block>
+<!-- 评论列表 -->
+<view class="comment-content" bindtap="onToggleAllComment">
+  <view class="comment-item" wx:for="{{commentData.list}}">
+    <image class="comment-user-pic" src="{{item.user.head}}"></image>
+    <view class="comment-right-con">
+      <view class="comment-rt-con">
+        <text class="comment-user-name">{{item.user.nick_name}}</text>
+        <view class="comment-score-star">
+          <image class="icon-star" wx:for="{{starNum}}" wx:for-item="starItem" src="/image/icon-comment-star{{(index+1 <= item.score) ? '-bright' : ''}}.png"></image>
+        </view>
+      </view>
+      <view class="comment-txt {{isShowAllComment[index] ? '' : 'ellipsis-four-line'}}" data-index="{{index}}">{{item.comment}}</view>
+      <view class="comment-yellow-txt" wx:if="{{isShowAllCommentBtn[index]}}" data-index="{{index}}" data-type="commentShowBtn">{{isShowAllComment[index] ? '收起' : '展开'}}</view>
+      <view class="comment-grey-txt">{{item.create_time}}</view>
+    </view>
+  </view>
+</view>
+ <navigator class="all-comment-btn" wx:if="{{!isShowAllComments && commentData.pagination.total_count > 5}}" hover-class="navigator-hover" url="{{allCommentUrl}}">查看全部点评></navigator>

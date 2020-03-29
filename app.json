@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "page/pages/indexVer2/indexVer2",
+    "page/pages/index/index",
+    "page/pages/my/my",
+    "page/pages/myBookshelf/myBookshelf",
+    "page/pages/search/search",
+    "page/pages/myRewards/myRewards",
+    "page/pages/rewardsExplain/rewardsExplain",
+    "page/pages/rewardsList/rewardsList",
+    "page/pages/login/login",
+    "page/pages/classify/classify",
+    "page/pages/moduleDetail/moduleDetail",
+    "page/pages/listenBook/listenBook",
+    "page/pages/readingPresen/readingPresen",
+    "page/pages/readingHistory/readingHistory",
+    "page/pages/comment/comment",
+    "page/pages/allComment/allComment",
+    "page/pages/paddyMall/paddyMall",
+    "page/pages/goodsDetail/goodsDetail",
+    "page/pages/paddyExchange/paddyExchange",
+    "page/pages/myAddress/myAddress",
+    "page/pages/orderDetail/orderDetail",
+    "page/pages/exchangeList/exchangeList",
+    "page/pages/sectionList/sectionList",
+    "page/pages/sign/sign",
+    "page/pages/signRecord/signRecord"
+  ],
+  "subpackages":[
+    {
+      "root": "awardWinning",
+      "pages": [
+        "pages/index/index",
+        "pages/rule/rule",
+        "pages/answer/answer",
+        "pages/answerRes/answerRes"
+      ]
+    }
+  ],
+  "requiredBackgroundModes": ["audio"],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "声财之道",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "page/pages/indexVer2/indexVer2",
+        "iconPath": "image/icon-index.png",
+        "selectedIconPath": "image/icon-index-act.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "page/pages/my/my",
+        "iconPath": "image/icon-my.png",
+        "selectedIconPath": "image/icon-my-act.png",
+        "text": "我的"
+      }
+    ],
+    "color": "#999",
+    "selectedColor": "#333",
+    "backgroundColor": "#fff"
+  },
+  "debug": false
+}

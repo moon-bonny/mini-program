@@ -1,0 +1,71 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.2",
+	"appid": "wxce2a969692ecbe56",
+	"projectname": "%E5%A3%B0%E8%B4%A2%E4%B9%8B%E9%81%93",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "财经资讯详情页",
+					"pathName": "page/pages/moduleDetail/moduleDetail",
+					"query": "pageType=financeInfo&articleId=5c90aa009248b325d16e6bbd",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的页面",
+					"pathName": "page/pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "听书详情页",
+					"pathName": "page/pages/listenBook/listenBook",
+					"query": "pageType=book&id=5c919d999248b302055b6890&sectionId=5c919dc09248b302055b6893",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "章节列表页",
+					"pathName": "page/pages/sectionList/sectionList",
+					"query": "type=lesson&lessonId=5c909f3e9248b316332e3ff3",
+					"scene": null
+				}
+			]
+		}
+	}
+}

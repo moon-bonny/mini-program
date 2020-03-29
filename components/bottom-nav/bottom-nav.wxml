@@ -1,0 +1,14 @@
+<view class="bottom-nav-wrap">
+  <view class="bottom-nav-item" bindtap="onToggleCollect">
+    <image class="bottom-nav-icon" src="{{isFavorited === 0 ? '/image/icon-bookshelf-add.png' : '/image/icon-bookshelf.png'}}"></image>
+    <text class="bottom-nav-txt">收藏</text>
+  </view>
+  <view class="bottom-nav-item" bindtap="onComment">
+    <image class="bottom-nav-icon" src="/image/icon-comment.png"></image>
+    <text class="bottom-nav-txt">点评</text>
+  </view>
+  <button class="bottom-nav-item" open-type="share" bindtap="onShare" hover-class="none">
+    <image class="bottom-nav-icon" src="/image/icon_share.png"></image>
+    <text class="bottom-nav-txt">分享</text>
+  </button>
+</view>

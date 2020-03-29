@@ -1,0 +1,19 @@
+<scroll-view scroll-y class="list-scroll" bindscrolltolower="onLoadMore" bindscrolltoupper="onScrollUpper">
+  <slot></slot>
+  <block wx:if="{{isShowMoreBlock}}">
+    <!-- 加载更多 -->
+    <view class="weui-loadmore" hidden="{{!loadMore}}">
+      <view class="weui-loading"></view>
+      <text class="weui-loadmore__tips">加载中…</text>
+    </view>
+    <!-- 没有更多啦 -->
+    <view class="weui-loadmore" hidden="{{loadMore}}">
+      <text class="no-more-txt">没有更多啦</text>
+    </view>
+  </block>
+  <!-- 暂无数据 -->
+  <view class="no-data" wx:if="{{noData}}" >
+    <image class="no-data-pic" src="../../image/no-data.png"></image>
+    <text class="no-data-txt">暂无相关记录</text>
+  </view>
+</scroll-view>

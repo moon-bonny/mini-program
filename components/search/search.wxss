@@ -1,0 +1,25 @@
+@import "../listview/listview.wxss";
+/*搜索栏*/
+.weui-search-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+.weui-search-bar__cancel-btn {
+  color: #ffb700;
+}
+/*搜索结果*/
+.search-wrapper {
+  padding-top: 110rpx;
+  height: 100%;
+}
+.search-scroll {
+  height:100%;
+}
+/*没有数据*/
+.no-data-pic{
+  width: 283rpx;
+  height: 153rpx;
+}

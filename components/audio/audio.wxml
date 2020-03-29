@@ -1,0 +1,31 @@
+<!-- 播放组件 -->
+<view wx:if="{{isShowPlayCtrl}}" class="progress-wrap" hidden="{{!isShowAudio}}">
+  <view class="time">
+    <text class="over-time">{{overTime}}</text>
+    <text class="total-time">{{totalTime}}</text>
+  </view>
+  <slider activeColor="#ffc800" bindtouchstart="onTouchstart" disabled="{{canSlider}}" bind:touchend="onSliderTouchend"  bindchange="onSliderChange" backgroundColor="#b5b6b5" max="1000" min="0" value="{{sliderVal}}"></slider>
+  
+  <view class="play-btn">
+    <image  bindtap="onPlayVoice" src="{{playState ? '/image/pause.png' : '/image/play.png'}}"></image>
+  </view>
+  <view bindtap="onJumpHistory" class="history">
+      <image src="/image/icon_history.png"></image>
+  </view>
+</view>
+<!-- 右下角悬浮按钮 -->
+<view wx:else bindtap="onPlayHistory" class="play-history-wrap {{isTransY ? 'trans-y' : ''}}" hidden="{{!isShowAudio}}">
+  <image src="{{iconPlayImage ? '/image/playing.gif' : '/image/play-pause.png'}}"></image>
+</view>
+<!-- 分享弹窗 -->
+<view wx:if="{{sharingFree}}" class="custom-window">
+  <view class="custom-section">
+    <view class="title">分享免费</view>
+    <view class="section">与好友分享后，即可免费听书哦~</view>
+    <view class="custom-btm">
+      <button bindtap="onCancel" class="cancel">取消</button>
+      <button bindtap="onTapShare" class="share" open-type="share">立即分享</button>
+    </view>
+  </view>
+</view>
+<dialog id='networkDialog' btnType='twoBtn' bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent" title='友情提示' content='当前为非wifi环境，继续播放可能会产生流量费用~' confirmTxt='继续播放'></dialog>

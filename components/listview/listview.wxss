@@ -1,0 +1,52 @@
+@import "/css/weui.wxss";
+.list-scroll {
+  height:100%;
+}
+
+/*加载中*/
+.weui-loadmore{
+	margin: 30rpx auto;
+	font-size: 28rpx;
+}
+/*没有更多*/
+.no-more-txt{
+	display: inline-block;
+	position: relative;
+	color: #ccc;
+}
+/*线*/
+.no-more-txt:before, .no-more-txt:after{
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	/*display: inline-block;*/
+	content: '';
+	width: 40rpx;
+	/*height: 1px;*/
+	border: 0;
+	border-top: 1px solid #ccc;
+	-webkit-text-size-adjust: none;
+	max-height:100%
+}
+.no-more-txt:before{
+	left: -60rpx;
+}	
+.no-more-txt:after{
+	right: -60rpx;
+}	
+
+/*没有数据*/
+.no-data {
+  padding-top: 200rpx;
+  text-align: center;
+}
+.no-data-pic{
+	width: 283rpx;
+	height: 155rpx;
+	margin-bottom: 50rpx;
+}
+.no-data-txt{
+	display: block;
+	color: #333;
+	font-size: 36rpx;
+}

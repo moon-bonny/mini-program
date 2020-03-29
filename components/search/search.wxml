@@ -1,0 +1,39 @@
+<!-- 搜索栏 -->
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" confirm-type="search" placeholder="搜索" value="{{inputVal}}" focus="{{isShowInput}}" bindconfirm="onSearch" bindinput="onInput" />
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="onClearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <label class="weui-search-bar__label" hidden="{{isShowInput}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
+  <view class="weui-search-bar__cancel-btn" hidden="{{!isShowInput}}" bindtap="onCancel">取消</view>
+</view>
+<!-- 搜索结果展示 -->
+<view class="search-wrapper">
+	<scroll-view bind:scrolltolower="onLoadMore" scroll-y  class="search-scroll">
+		<slot></slot>
+		<block wx:if="{{isShowMoreBlock}}">
+			<!-- 加载更多 -->
+			<view class="weui-loadmore" hidden="{{!loadMore}}">
+			  <view class="weui-loading"></view>
+			  <view class="weui-loadmore__tips">加载中…</view>
+			</view>
+			<!-- 没有更多啦 -->
+			<view class="weui-loadmore" hidden="{{loadMore}}">
+		   	<text class="no-more-txt">没有更多啦</text>
+			</view>
+		</block>
+		<!-- 暂无数据 -->
+		<view class="no-data" hidden="{{!noData}}">
+			<image class="no-data-pic" src="../../image/no-data-search.png"></image>
+	    <text class="no-data-txt">很遗憾，没有匹配的结果~</text>
+		</view>
+	</scroll-view>
+</view>
